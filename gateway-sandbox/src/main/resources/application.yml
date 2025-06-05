@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: gateway-sandbox
+client:
+  url:
+    address: http://localhost:3000/api/address
