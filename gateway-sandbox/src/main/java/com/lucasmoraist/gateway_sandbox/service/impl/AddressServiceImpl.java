@@ -2,7 +2,7 @@ package com.lucasmoraist.gateway_sandbox.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lucasmoraist.gateway_sandbox.client.AddressClient;
-import com.lucasmoraist.gateway_sandbox.domain.information.Address;
+import com.lucasmoraist.gateway_sandbox.domain.information.AddressDto;
 import com.lucasmoraist.gateway_sandbox.service.AddressService;
 import feign.Response;
 import lombok.RequiredArgsConstructor;
@@ -20,11 +20,11 @@ public class AddressServiceImpl implements AddressService {
     private final ObjectMapper objectMapper;
 
     @Override
-    public Address getAddress(String zipCode) {
+    public AddressDto getAddress(String zipCode) {
         try {
             log.info("Fetching address for zip code: {}", zipCode);
             Response response = this.addressClient.getAddress(zipCode);
-            Address address = this.mapperResponse(response);
+            AddressDto address = this.mapperResponse(response);
             log.debug("Received address: {}", address);
             return address;
         } catch (Exception e) {
@@ -33,13 +33,13 @@ public class AddressServiceImpl implements AddressService {
         }
     }
 
-    private Address mapperResponse(Response response) {
+    private AddressDto mapperResponse(Response response) {
         if (response == null || response.body() == null) {
             log.error("Received null response or body from address client");
             return null;
         }
         try (InputStream in = response.body().asInputStream()) {
-            Address address = this.objectMapper.readValue(in, Address.class);
+            AddressDto address = this.objectMapper.readValue(in, AddressDto.class);
             log.info("Successfully mapped response to Address: {}", address);
             return address;
         } catch (Exception e) {
