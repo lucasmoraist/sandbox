@@ -1,7 +1,7 @@
 package com.lucasmoraist.gateway_sandbox.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lucasmoraist.gateway_sandbox.AddressClient;
+import com.lucasmoraist.gateway_sandbox.client.AddressClient;
 import com.lucasmoraist.gateway_sandbox.domain.information.Address;
 import com.lucasmoraist.gateway_sandbox.service.AddressService;
 import feign.Response;

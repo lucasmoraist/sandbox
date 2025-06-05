@@ -1,5 +1,4 @@
-package com.lucasmoraist.gateway_sandbox;
-
+package com.lucasmoraist.gateway_sandbox.client;
 
 import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
