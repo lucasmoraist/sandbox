@@ -3,6 +3,7 @@ package com.lucasmoraist.address_sandbox.client;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lucasmoraist.address_sandbox.client.impl.ViaCepClientImpl;
 import com.lucasmoraist.address_sandbox.dto.Address;
+import com.lucasmoraist.address_sandbox.exception.ViaCepException;
 import feign.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -56,7 +58,7 @@ class ViaCepClientImplTest {
                 + "\"siafi\":\"7107\""
                 + "}";
 
-        byte[] utf8Bytes = responseBody.getBytes("UTF-8");
+        byte[] utf8Bytes = responseBody.getBytes(StandardCharsets.UTF_8);
         Address expectedAddress = objectMapper.readValue(responseBody, Address.class);
 
         Response.Body mockedBody = mock(Response.Body.class);
@@ -79,9 +81,7 @@ class ViaCepClientImplTest {
         when(viaCepClient.getAddressByCep(cep)).thenReturn(response);
         when(response.body()).thenReturn(null);
 
-        Address actualAddress = viaCepClientImpl.getAddress(cep);
-
-        assertNull(actualAddress);
+        assertThrows(ViaCepException.class, () -> viaCepClientImpl.getAddress(cep));
     }
 
     @Test
