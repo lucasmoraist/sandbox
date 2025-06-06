@@ -1,5 +1,8 @@
 package com.lucasmoraist.address_sandbox.dto;
 
+import lombok.Builder;
+
+@Builder
 public record Address(
         String cep,
         String logradouro,

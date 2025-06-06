@@ -8,6 +8,7 @@ class AddressSandboxApplicationTests {
 
 	@Test
 	void contextLoads() {
+		AddressSandboxApplication.main(new String[] {});
 	}
 
 }
