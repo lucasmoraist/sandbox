@@ -28,3 +28,14 @@ spring:
               republish-to-dlq: true
               transacted: true
               binding-routing-key: jms-sandbox
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${GMAIL_EMAIL}
+    password: ${GMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
