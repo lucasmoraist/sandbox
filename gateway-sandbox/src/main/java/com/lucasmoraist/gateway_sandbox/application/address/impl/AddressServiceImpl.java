@@ -1,9 +1,9 @@
-package com.lucasmoraist.gateway_sandbox.service.impl;
+package com.lucasmoraist.gateway_sandbox.application.address.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lucasmoraist.gateway_sandbox.client.AddressClient;
+import com.lucasmoraist.gateway_sandbox.infra.client.AddressClient;
 import com.lucasmoraist.gateway_sandbox.domain.information.AddressDto;
-import com.lucasmoraist.gateway_sandbox.service.AddressService;
+import com.lucasmoraist.gateway_sandbox.application.address.AddressService;
 import feign.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

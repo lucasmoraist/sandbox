@@ -1,4 +1,4 @@
-package com.lucasmoraist.gateway_sandbox.service;
+package com.lucasmoraist.gateway_sandbox.application.address;
 
 import com.lucasmoraist.gateway_sandbox.domain.information.AddressDto;
 

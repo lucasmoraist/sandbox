@@ -1,7 +1,7 @@
-package com.lucasmoraist.gateway_sandbox.controller;
+package com.lucasmoraist.gateway_sandbox.infra.controller;
 
-import com.lucasmoraist.gateway_sandbox.controller.request.PersonRequest;
-import com.lucasmoraist.gateway_sandbox.controller.response.PersonResponse;
+import com.lucasmoraist.gateway_sandbox.infra.controller.request.PersonRequest;
+import com.lucasmoraist.gateway_sandbox.infra.controller.response.PersonResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,11 +1,11 @@
-package com.lucasmoraist.gateway_sandbox.controller.impl;
+package com.lucasmoraist.gateway_sandbox.infra.controller.impl;
 
-import com.lucasmoraist.gateway_sandbox.controller.PersonController;
-import com.lucasmoraist.gateway_sandbox.controller.request.PersonRequest;
-import com.lucasmoraist.gateway_sandbox.controller.response.PersonResponse;
+import com.lucasmoraist.gateway_sandbox.infra.controller.PersonController;
+import com.lucasmoraist.gateway_sandbox.infra.controller.request.PersonRequest;
+import com.lucasmoraist.gateway_sandbox.infra.controller.response.PersonResponse;
 import com.lucasmoraist.gateway_sandbox.domain.information.Address;
 import com.lucasmoraist.gateway_sandbox.domain.information.AddressDto;
-import com.lucasmoraist.gateway_sandbox.service.AddressService;
+import com.lucasmoraist.gateway_sandbox.application.address.AddressService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;

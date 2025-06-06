@@ -1,4 +1,4 @@
-package com.lucasmoraist.gateway_sandbox.controller.response;
+package com.lucasmoraist.gateway_sandbox.infra.controller.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucasmoraist.gateway_sandbox.domain.information.Address;

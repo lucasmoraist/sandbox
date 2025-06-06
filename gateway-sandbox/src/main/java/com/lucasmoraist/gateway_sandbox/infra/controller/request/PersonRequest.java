@@ -1,4 +1,4 @@
-package com.lucasmoraist.gateway_sandbox.controller.request;
+package com.lucasmoraist.gateway_sandbox.infra.controller.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucasmoraist.gateway_sandbox.domain.enums.Gender;
