@@ -3,6 +3,7 @@ package com.lucasmoraist.address_sandbox.client.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lucasmoraist.address_sandbox.client.ViaCepClient;
 import com.lucasmoraist.address_sandbox.dto.Address;
+import com.lucasmoraist.address_sandbox.exception.ViaCepException;
 import feign.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -29,7 +30,7 @@ public class ViaCepClientImpl {
     private Address mapperResponse(Response response) {
         if (response == null || response.body() == null) {
             log.error("Response or response body is null");
-            return null;
+            throw new ViaCepException("CEP not found or invalid response from ViaCep service");
         }
 
         try (InputStream in = response.body().asInputStream()) {
@@ -39,7 +40,7 @@ public class ViaCepClientImpl {
             return address;
         } catch (Exception e) {
             log.error("Error mapping response to Address object", e);
-            throw new RuntimeException("Failed to map response to Address object", e);
+            throw new ViaCepException("Failed to map response to Address object", e);
         }
     }
 
